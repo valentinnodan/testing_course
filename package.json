@@ -1,0 +1,23 @@
+{
+  "name": "testing_course",
+  "version": "1.0.0",
+  "description": "app with autorization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valentinnodan/testing_course.git"
+  },
+  "author": "Valentina Danilova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valentinnodan/testing_course/issues"
+  },
+  "homepage": "https://github.com/valentinnodan/testing_course#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+git
