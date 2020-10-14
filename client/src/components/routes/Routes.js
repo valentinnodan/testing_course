@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Router, Switch} from "react-router-dom";
-import Authorization from "../autorization/Autorization";
+import Authorization from "../autorization/Authorization";
 import Home from "../home/Home";
 
 function Routes() {
@@ -8,7 +8,7 @@ function Routes() {
         <main>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/authorize' component={Authorization} />
+                <Route path='/authorize' component={Authorization} />
             </Switch>
         </main>
     );

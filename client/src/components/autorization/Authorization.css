@@ -1,0 +1,39 @@
+.App-form_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+    /*background-color: #AEE09C;*/
+    color: #36572A;
+}
+
+.App-form {
+
+    width: 50%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    align-self: center;
+
+    background-color: #AEE09C;
+    color: #36572A;
+}
+
+.App-form_name {
+    font-size: 25px;
+    margin: 10px;
+}
+
+.App-form_input {
+    width: 75%;
+}
+
+.App-form_submit-button {
+    width: 160px;
+    height: 40px;
+    background-color: #36572A;
+}

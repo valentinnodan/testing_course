@@ -10,13 +10,10 @@ function Header() {
                     Coin
                 </p>
                 <Link
-                    to="/authorize"
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={'/authorize'}
+                    className='App-link'
                 >
-                    Autorize
+                    Authorize
                 </Link>
             </header>
     );
