@@ -5,10 +5,14 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/authorize', (req, res) => {
-    if (res.body.login === 1 && res.body.password === 1) {
-        const me = {name: 'Valentina', surname: 'Danilova'};
+app.get('/api/authorize', (req, res) => {
+    const me = {name: 'Valentina', surname: 'Danilova'};
+    console.log(req.query.login)
+    console.log(req.query.password)
+    if (req.query.login === '1' && req.query.password === '1') {
         res.json(me);
+    } else {
+        res.json(req.query)
     }
 })
 
