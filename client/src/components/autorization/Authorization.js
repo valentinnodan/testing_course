@@ -7,20 +7,21 @@ class Authorization extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: ''
+            name: ''
         };
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleSubmit(event) {
         event.preventDefault()
         console.log('form is submitted')
         const params = {login: event.target[0].value, password: event.target[1].value}
+        if (this.state.name !== '') {
+            alert('You are already authorized');
+        }
         fetch('/api/authorize?login=1&password=1').then(res => res.json())
             .then(res => this.setState(res))
-            .then((_) => console.log(this.state))
+            .then((_) => this.props.onNameChange(this.state.name))
     }
 
     render() {
