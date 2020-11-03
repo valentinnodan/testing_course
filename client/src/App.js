@@ -8,29 +8,29 @@ class App extends Component {
         super(props);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.dropState = this.dropState.bind(this);
-        this.state = {name: ''};
+        this.state = {name: '', login:''};
     }
 
-    handleNameChange(myName) {
-        this.setState({name: myName})
+    handleNameChange(myName, myLogin) {
+        this.setState({name: myName, login: myLogin})
     }
 
     dropState() {
-        this.handleNameChange('');
+        this.setState({name: '', login: ''});
     }
 
     render() {
         const name = this.state.name;
-        let headerProps = {isAuthorized: false, name: ''}
+        let headerProps = {isAuthorized: false, name: '', login: ''}
         if (name !== '') {
             headerProps.isAuthorized = true;
             headerProps.name = name;
+            headerProps.login = this.state.login;
         }
 
         return (
             <div className="App">
                 <Header userInfo={headerProps}
-                        onNameChange={this.handleNameChange}
                         dropState={this.dropState}
                 />
                 <Routes userInfo={headerProps}

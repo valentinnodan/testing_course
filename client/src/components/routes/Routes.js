@@ -3,10 +3,12 @@ import {Route, Router, Switch} from "react-router-dom";
 import Authorization from "../autorization/Authorization";
 import Home from "../home/Home";
 import Budget from "../budget/Budget";
+import Register from "../Register/Register";
 
 function Routes(props) {
     const myOnNameChange = props.onNameChange;
     const userInfo = props.userInfo.name;
+    const userLogin = props.userInfo.login;
     return (
         <main>
             <Switch>
@@ -14,6 +16,7 @@ function Routes(props) {
                        render={(props) =>
                            (<Home {...props}
                                   userName={userInfo}
+
                            />)}/>
                 <Route path='/authorize'
                        render={(props) =>
@@ -25,7 +28,15 @@ function Routes(props) {
                        render={(props) =>
                            (<Budget {...props}
                                     userInfo={userInfo}
+                                    userLogin={userLogin}
                            />)}/>
+                <Route path='/register'
+                       render={(props) =>
+                           (<Register {...props}
+                                      userInfo={userInfo}
+                                      onNameChange={myOnNameChange}
+                           />)}
+                />
             </Switch>
         </main>
     );

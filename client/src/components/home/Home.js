@@ -4,6 +4,8 @@ import Header from "../header/Header";
 import {Link} from "react-router-dom";
 
 
+const promoText = 'Coin is an app for your budget tracking. We call one expense Coin. Track your Coins with us!'
+
 function Home(props) {
     let contentComponent = <div className="App-text">Hello, guest!</div>
     if (props.userName !== '') {
@@ -20,6 +22,7 @@ function Home(props) {
     return (
         <div className="App">
             {contentComponent}
+            {promoText}
         </div>
     );
 }

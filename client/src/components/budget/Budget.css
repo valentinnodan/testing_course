@@ -1,0 +1,17 @@
+.budget {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.budget-coins {
+    display: flex;
+    flex-direction: column;
+}
+
+.budget-coins_item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.budget-form_wrapper {
+    display: flex;
+}

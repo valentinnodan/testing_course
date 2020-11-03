@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-import './Authorization.css';
-import {Link} from "react-router-dom";
 
-class Authorization extends Component {
+class Register extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            name: ''
+            name: props.userInfo
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -15,13 +13,13 @@ class Authorization extends Component {
     handleSubmit(event) {
         event.preventDefault()
         console.log('form is submitted')
-        const params = {login: event.target[0].value}
+        const params = {login: event.target[0].value, name: event.target[1].value}
         if (this.state.name !== '') {
             alert('You are already authorized');
         }
-        fetch(`/api/authorize?login=${params.login}`).then(res => res.json())
+        fetch(`/api/register?login=${params.login}&name=${params.name}`, {method : 'POST'} ).then(res => res.json())
             .then(res => this.setState(res))
-            .then((_) => this.props.onNameChange(this.state.name, params.login))
+            .then((_) => this.props.onNameChange(params.name, params.login))
     }
 
     render() {
@@ -38,19 +36,17 @@ class Authorization extends Component {
                            name='login'
                            placeholder='Your login'
                     />
-                    <button className='App-form_submit-button'>Log in</button>
+                    <input type='text'
+                           required='true'
+                           className='App-form_input'
+                           name='name'
+                           placeholder='Your name'
+                    />
+                    <button className='App-form_submit-button'>Register</button>
                 </form>
-                <div className="auth-alt">
-                    Or
-                    <Link
-                        to={'/register'}
-                    >
-                        Register
-                    </Link>
-                </div>
             </div>
         );
     }
 }
 
-export default Authorization;
+export default Register;
