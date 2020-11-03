@@ -75,37 +75,39 @@ class Budget extends Component {
 
         if (this.state.login === '') {
             return <div className="App-text">
-                You need to authorize
+                <div className="App-text_item">You need to authorize</div>
             </div>
         }
 
         return (<div className="budget">
                 {createCoinsRepresentation(this.state.coins)}
                 <div className='App-form_wrapper budget-form'>
-                    <form className="App-form" onSubmit={this.handleSubmit}>
-                        <p className="App-form_name">
-                            Insert new coin, {this.state.name}!
-                        </p>
-                        <input type='date'
-                               required='true'
-                               className='App-form_input'
-                               name='date'
-                               placeholder='Date of coin'
-                        />
-                        <input type='text'
-                               required='true'
-                               className='App-form_input'
-                               name='name'
-                               placeholder='Name of coin'
-                        />
-                        <input type='number'
-                               required='true'
-                               className='App-form_input'
-                               name='name'
-                               placeholder='Value of coin'
-                        />
-                        <button className='App-form_submit-button'>Submit new coin</button>
-                    </form>
+                    <div className='App-form_wrapper-half'>
+                        <form className="App-form" onSubmit={this.handleSubmit}>
+                            <p className="App-form_name">
+                                Insert new coin, {this.state.name}!
+                            </p>
+                            <input type='date'
+                                   required='true'
+                                   className='App-form_input'
+                                   name='date'
+                                   placeholder='Date of coin'
+                            />
+                            <input type='text'
+                                   required='true'
+                                   className='App-form_input'
+                                   name='name'
+                                   placeholder='Name of coin'
+                            />
+                            <input type='number'
+                                   required='true'
+                                   className='App-form_input'
+                                   name='name'
+                                   placeholder='Value of coin'
+                            />
+                            <button className='App-form_submit-button'>Submit new coin</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );

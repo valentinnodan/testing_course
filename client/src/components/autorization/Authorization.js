@@ -27,19 +27,21 @@ class Authorization extends Component {
     render() {
         return (
             <div className='App-form_wrapper'>
-                <form className="App-form" onSubmit={this.handleSubmit}>
-                    <p className="App-form_name">
-                        Log in
-                        <div>Hello {this.state.name}!</div>
-                    </p>
-                    <input type='text'
-                           required='true'
-                           className='App-form_input'
-                           name='login'
-                           placeholder='Your login'
-                    />
-                    <button className='App-form_submit-button'>Log in</button>
-                </form>
+                <div className='App-form_wrapper-full'>
+                    <form className="App-form" onSubmit={this.handleSubmit}>
+                        <p className="App-form_name">
+                            Log in
+                            <div>Hello {this.state.name}!</div>
+                        </p>
+                        <input type='text'
+                               required='true'
+                               className='App-form_input'
+                               name='login'
+                               placeholder='Your login'
+                        />
+                        <button className='App-form_submit-button'>Log in</button>
+                    </form>
+                </div>
                 <div className="auth-alt">
                     Or
                     <Link

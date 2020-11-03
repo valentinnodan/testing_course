@@ -4,14 +4,27 @@
     display: flex;
     justify-content: center;
 
-    /*background-color: #AEE09C;*/
-    color: #36572A;
+/*background-color: #AEE09C;*/
+color: #36572A;
+
+}
+.App-form_wrapper-full {
+    width: 50%;
+    height: 50%;
+
+    align-self: center;
+}
+
+.App-form_wrapper-half {
+    height: 50%;
+
+    align-self: center;
 }
 
 .App-form {
 
-    /*width: 50%;*/
-    /*height: 50%;*/
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
