@@ -29,3 +29,11 @@
     grid-template-rows: 1fr 2fr 1fr;
     height: 100%;
 }
+
+.App-button {
+    padding: 5px;
+    background-color: #36572A;
+    border-style: none;
+    border-radius: 15px;
+    cursor: pointer;
+}

@@ -14,6 +14,7 @@ class Budget extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+
     componentDidMount() {
         fetch(`/api/budget?userLogin=${this.state.login}`,
             {method: 'GET'})

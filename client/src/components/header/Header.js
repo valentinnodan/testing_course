@@ -10,7 +10,7 @@ function Header(props) {
         Authorize
     </Link>
     if (props.userInfo.isAuthorized) {
-        authComponent = <button onClick={props.dropState}>Log out</button>
+        authComponent = <button className='App-button' onClick={props.dropState}>Log out</button>
     }
     return (
             <header className="App-header">
