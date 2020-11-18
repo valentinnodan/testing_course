@@ -4,8 +4,9 @@
 
     display: grid;
     grid-template-rows: 80px 1fr 80px;
-    background-color: #E2C3C8;
+    background-color: #FFFFFF;
     text-align: center;
+    font-family: Arial;
 }
 
 .App-text {
@@ -21,7 +22,9 @@
 }
 
 .App-link {
-    color: #36572A;
+    color: #7EA650;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .wrapper {

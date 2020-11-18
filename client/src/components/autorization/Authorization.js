@@ -43,9 +43,10 @@ class Authorization extends Component {
                     </form>
                 </div>
                 <div className="auth-alt">
-                    Or
+                    Or&nbsp;
                     <Link
                         to={'/register'}
+                        className='App-link'
                     >
                         Register
                     </Link>

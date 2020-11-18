@@ -3,9 +3,9 @@
     height: 100%;
     display: flex;
     justify-content: center;
-
+    flex-direction: column;
 /*background-color: #AEE09C;*/
-color: #36572A;
+/*color: #36572A;*/
 
 }
 .App-form_wrapper-full {
@@ -32,8 +32,7 @@ color: #36572A;
     justify-content: space-around;
     align-self: center;
 
-    background-color: #AEE09C;
-    color: #36572A;
+    background-color: #A5B4BF;
 }
 
 .App-form_name {
@@ -48,5 +47,12 @@ color: #36572A;
 .App-form_submit-button {
     width: 160px;
     height: 40px;
-    background-color: #36572A;
+    background-color: #7EA650;
+    border-style: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.auth_alt {
+
 }

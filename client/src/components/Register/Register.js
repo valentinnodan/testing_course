@@ -17,7 +17,7 @@ class Register extends Component {
         if (this.state.name !== '') {
             alert('You are already authorized');
         }
-        fetch(`/api/register?login=${params.login}&name=${params.name}`, {method : 'POST'} ).then(res => res.json())
+        fetch(`/api/register?login=${params.login}&name=${params.name}`, {method: 'POST'}).then(res => res.json())
             .then(res => this.setState(res))
             .then((_) => this.props.onNameChange(params.name, params.login))
     }
@@ -25,25 +25,27 @@ class Register extends Component {
     render() {
         return (
             <div className='App-form_wrapper'>
-                <form className="App-form" onSubmit={this.handleSubmit}>
-                    <p className="App-form_name">
-                        Log in
-                        <div>Hello {this.state.name}!</div>
-                    </p>
-                    <input type='text'
-                           required='true'
-                           className='App-form_input'
-                           name='login'
-                           placeholder='Your login'
-                    />
-                    <input type='text'
-                           required='true'
-                           className='App-form_input'
-                           name='name'
-                           placeholder='Your name'
-                    />
-                    <button className='App-form_submit-button'>Register</button>
-                </form>
+                <div className='App-form_wrapper-full'>
+                    <form className="App-form" onSubmit={this.handleSubmit}>
+                        <p className="App-form_name">
+                            Log in
+                            <div>Hello {this.state.name}!</div>
+                        </p>
+                        <input type='text'
+                               required='true'
+                               className='App-form_input'
+                               name='login'
+                               placeholder='Your login'
+                        />
+                        <input type='text'
+                               required='true'
+                               className='App-form_input'
+                               name='name'
+                               placeholder='Your name'
+                        />
+                        <button className='App-form_submit-button'>Register</button>
+                    </form>
+                </div>
             </div>
         );
     }
