@@ -1,6 +1,27 @@
 import React, {Component} from 'react';
 import './Budget.css';
 
+function createCoinsRepresentation(coins) {
+    function represent(coin) {
+        const dateField = `Date: ${coin.date}`
+        const nameField = `Name: ${coin.name}`
+        const valueField = `Value: ${coin.value}`
+        return (<li key={nameField} className="budget-coins_item">
+            <div className="budget-coins_item-field">{dateField}</div>
+            <div className="budget-coins_item-field">{nameField}</div>
+            <div className="budget-coins_item-field">{valueField}</div>
+        </li>)
+    }
+
+    return (<ul className="budget-coins">
+        <div className='budget-coins_name'>My coins</div>
+        <div className='budget-coins_amount'>Amount = {coins.length}</div>
+        {coins.map(c => {
+            return represent(c);
+        })}
+    </ul>)
+}
+
 class Budget extends Component {
 
     constructor(props) {
@@ -13,7 +34,6 @@ class Budget extends Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     componentDidMount() {
         fetch(`/api/budget?userLogin=${this.state.login}`,
@@ -51,28 +71,7 @@ class Budget extends Component {
             .then(res => this.setState({name: this.state.name, login: this.state.login, coins: res}));
     }
 
-
     render() {
-        function represent(coin) {
-            const dateField = `Date: ${coin.date}`
-            const nameField = `Name: ${coin.name}`
-            const valueField = `Value: ${coin.value}`
-            return (<li key={nameField} className="budget-coins_item">
-                <div className="budget-coins_item-field">{dateField}</div>
-                <div className="budget-coins_item-field">{nameField}</div>
-                <div className="budget-coins_item-field">{valueField}</div>
-            </li>)
-        }
-
-        function createCoinsRepresentation(coins) {
-            return (<ul className="budget-coins">
-                <div className='budget-coins_name'>My coins</div>
-                <div className='budget-coins_amount'>Amount = {coins.length}</div>
-                {coins.map(c => {
-                    return represent(c);
-                })}
-            </ul>)
-        }
 
         if (this.state.login === '') {
             return <div className="App-text">

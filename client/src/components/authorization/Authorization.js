@@ -31,7 +31,7 @@ class Authorization extends Component {
                     <form className="App-form" onSubmit={this.handleSubmit}>
                         <p className="App-form_name">
                             Log in
-                            <div>Hello {this.state.name}!</div>
+                            <div>{greet(this.state.name)}</div>
                         </p>
                         <input type='text'
                                required='true'
