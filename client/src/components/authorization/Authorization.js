@@ -9,21 +9,28 @@ class Authorization extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: ''
+            name: '',
+            value: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleSubmit(event) {
         event.preventDefault()
         console.log('form is submitted')
-        const params = {login: event.target[0].value}
         if (this.state.name !== '') {
             alert('You are already authorized');
         }
-        fetch(`/api/authorize?login=${params.login}`).then(res => res.json())
-            .then(res => this.setState(res))
-            .then((_) => this.props.onNameChange(this.state.name, params.login))
+        fetch(`/api/authorize?login=${this.state.value}`).then(res => res.json())
+            .then(res => {
+                this.setState({name: res.name, value: this.state.value})
+            })
+            .then((_) => {this.props.onNameChange(this.state.name, this.state.value)})
+    }
+
+    handleChange(event) {
+        this.setState({name: this.state.name, value: event.target.value});
     }
 
     render() {
@@ -40,6 +47,8 @@ class Authorization extends Component {
                                className='App-form_input'
                                name='login'
                                placeholder='Your login'
+                               data-testid="auth-input"
+                               onChange={this.handleChange}
                         />
                         <button className='App-form_submit-button'>Log in</button>
                     </form>
