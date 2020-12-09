@@ -6,8 +6,18 @@ describe('all elements are rendered correctly', () => {
     beforeEach(() => {
         render(<App />);
     })
-    it('contains header', () => {
+    it('renders header', () => {
+        expect(screen.getByRole('banner')).toBeInTheDocument();
+        expect(screen.getByText('Coin')).toBeInTheDocument();
         expect(screen.getByText('Authorize')).toBeInTheDocument();
-        // expect(screen.queryByText('Authorize')).not.toBe(null);
+    })
+    it('renders greeting when not authorized', () => {
+        expect(screen.getByText('Hello, guest!')).toBeInTheDocument();
+    })
+    it('does not render link to budget when not authorized', () => {
+        expect(screen.queryByText('To budget')).toBe(null);
+    })
+    it('renders promo text', () => {
+        expect(screen.getByText(new RegExp('Coin is an app'))).toBeInTheDocument();
     })
 })
