@@ -1,8 +1,7 @@
 import React from 'react';
 import '../app/App.css';
-import Header from "../header/Header";
 import {Link} from "react-router-dom";
-
+import greet from '../../utils/greeting'
 
 const promoText = 'Coin is an app for your budget tracking. We call one expense Coin. Track your Coins with us!'
 

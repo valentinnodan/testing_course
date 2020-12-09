@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import './components/app/App.css';
-import Header from "./components/header/Header";
-import Routes from "./components/routes/Routes";
+import '../src/components/app/App.css';
+import Header from "../src/components/header/Header";
+import Routes from "../src/components/routes/Routes";
+import {BrowserRouter} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.handleNameChange = this.handleNameChange.bind(this);
         this.dropState = this.dropState.bind(this);
-        this.state = {name: '', login:''};
+        this.state = {name: '', login: ''};
     }
 
     handleNameChange(myName, myLogin) {
@@ -29,14 +30,16 @@ class App extends Component {
         }
 
         return (
-            <div className="App">
-                <Header userInfo={headerProps}
-                        dropState={this.dropState}
-                />
-                <Routes userInfo={headerProps}
-                        onNameChange={this.handleNameChange}
-                />
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Header userInfo={headerProps}
+                            dropState={this.dropState}
+                    />
+                    <Routes userInfo={headerProps}
+                            onNameChange={this.handleNameChange}
+                    />
+                </div>
+            </BrowserRouter>
         );
     }
 }

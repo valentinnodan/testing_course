@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Authorization.css';
 import {Link} from "react-router-dom";
+import greet from '../../utils/greeting'
+
 
 class Authorization extends Component {
 

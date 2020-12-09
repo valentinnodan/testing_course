@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Router, Switch} from "react-router-dom";
+import {HashRouter, Route, Router, Switch} from "react-router-dom";
 import Authorization from "../authorization/Authorization";
 import Home from "../home/Home";
 import Budget from "../budget/Budget";
