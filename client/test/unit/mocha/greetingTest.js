@@ -9,7 +9,7 @@ describe('greeting test', () => {
     it('greet guest', () => {
         greet('').should.be.equal('Hello, guest!');
     })
-    it('greet guest', () => {
+    it('greet Test', () => {
         greet('Test').should.be.equal('Hello, Test!');
     })
 })

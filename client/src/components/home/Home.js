@@ -18,6 +18,7 @@ function Home(props) {
             {promo}
             <Link
                 to={'/budget'}
+                id='link-to-budget'
             >
                 To budget
             </Link>

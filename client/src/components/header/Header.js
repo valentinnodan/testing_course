@@ -6,16 +6,18 @@ function Header(props) {
     let authComponent = <Link
         to={'/authorize'}
         className='App-link'
+        id='App-header-link'
     >
         Authorize
     </Link>
     if (props.userInfo.isAuthorized) {
-        authComponent = <button className='App-button' onClick={props.dropState}>Log out</button>
+        authComponent = <button className='App-button' id='App-header-button' onClick={props.dropState}>Log out</button>
     }
     return (
             <header className="App-header">
                 <Link to={'/'}
                     className="App-header_name"
+                      id='App-header-link'
                 >
                     Coin
                 </Link>
