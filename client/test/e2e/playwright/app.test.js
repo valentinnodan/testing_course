@@ -1,6 +1,6 @@
 const playwright = require('playwright');
 
-const PAGE_URL = "https://www.eliostruyf.com";
+const PAGE_URL = "http://localhost:3000";
 
 describe(`UI Tests with Playwright`, () => {
     let browser = null;
@@ -18,9 +18,7 @@ describe(`UI Tests with Playwright`, () => {
         }
 
         // Open the page
-        await page.goto(PAGE_URL, {
-            waitUntil: "networkidle0"
-        });
+        await page.goto(PAGE_URL);
     });
 
     afterAll(async () => {
@@ -31,4 +29,7 @@ describe(`UI Tests with Playwright`, () => {
         expect(page).not.toBeNull();
         expect(await page.title()).not.toBeNull();
     });
+
+    test('Should login')
+
 });
