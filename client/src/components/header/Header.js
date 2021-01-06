@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 function Header(props) {
     let authComponent = <Link
@@ -14,9 +14,9 @@ function Header(props) {
         authComponent = <button className='App-button' id='App-header-button' onClick={props.dropState}>Log out</button>
     }
     return (
-            <header className="App-header">
+            <header className='App-header'>
                 <Link to={'/'}
-                    className="App-header_name"
+                    className='App-header_name'
                       id='App-header-link'
                 >
                     Coin

@@ -6,14 +6,14 @@ function createCoinsRepresentation(coins) {
         const dateField = `Date: ${coin.date}`
         const nameField = `Name: ${coin.name}`
         const valueField = `Value: ${coin.value}`
-        return (<li key={nameField} className="budget-coins_item">
-            <div className="budget-coins_item-field">{dateField}</div>
-            <div className="budget-coins_item-field">{nameField}</div>
-            <div className="budget-coins_item-field">{valueField}</div>
+        return (<li key={nameField} className='budget-coins_item'>
+            <div className='budget-coins_item-field'>{dateField}</div>
+            <div className='budget-coins_item-field'>{nameField}</div>
+            <div className='budget-coins_item-field'>{valueField}</div>
         </li>)
     }
 
-    return (<ul className="budget-coins">
+    return (<ul className='budget-coins'>
         <div className='budget-coins_name'>My coins</div>
         <div className='budget-coins_amount'>Amount = {coins.length}</div>
         {coins.map(c => {
@@ -74,17 +74,17 @@ class Budget extends Component {
     render() {
 
         if (this.state.login === '') {
-            return <div className="App-text">
-                <div className="App-text_item">You need to authorize</div>
+            return <div className='App-text'>
+                <div className='App-text_item'>You need to authorize</div>
             </div>
         }
 
-        return (<div className="budget">
+        return (<div className='budget'>
                 {createCoinsRepresentation(this.state.coins)}
                 <div className='App-form_wrapper budget-form'>
                     <div className='App-form_wrapper-half'>
-                        <form className="App-form" onSubmit={this.handleSubmit}>
-                            <p className="App-form_name">
+                        <form className='App-form' onSubmit={this.handleSubmit}>
+                            <p className='App-form_name'>
                                 Insert new coin, {this.state.name}!
                             </p>
                             <input type='date'

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Authorization.css';
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 import greet from '../../utils/greeting'
 
 
@@ -26,7 +26,9 @@ class Authorization extends Component {
             .then(res => {
                 this.setState({name: res.name, value: this.state.value})
             })
-            .then((_) => {this.props.onNameChange(this.state.name, this.state.value)})
+            .then((_) => {
+                this.props.onNameChange(this.state.name, this.state.value)
+            })
     }
 
     handleChange(event) {
@@ -37,8 +39,8 @@ class Authorization extends Component {
         return (
             <div className='App-form_wrapper'>
                 <div className='App-form_wrapper-full'>
-                    <form className="App-form" onSubmit={this.handleSubmit}>
-                        <p className="App-form_name">
+                    <form className='App-form' onSubmit={this.handleSubmit}>
+                        <p className='App-form_name'>
                             Log in
                             <div>{greet(this.state.name)}</div>
                         </p>
@@ -47,13 +49,13 @@ class Authorization extends Component {
                                className='App-form_input'
                                name='login'
                                placeholder='Your login'
-                               data-testid="auth-input"
+                               data-testid='auth-input'
                                onChange={this.handleChange}
                         />
                         <button className='App-form_submit-button'>Log in</button>
                     </form>
                 </div>
-                <div className="auth-alt">
+                <div className='auth-alt'>
                     Or&nbsp;
                     <Link
                         to={'/register'}

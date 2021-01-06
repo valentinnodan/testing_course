@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import '../src/components/app/App.css';
-import Header from "../src/components/header/Header";
-import Routes from "../src/components/routes/Routes";
-import {BrowserRouter} from "react-router-dom";
+import Header from '../src/components/header/Header';
+import Routes from '../src/components/routes/Routes';
+import {BrowserRouter} from 'react-router-dom';
 
 class App extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class App extends Component {
 
         return (
             <BrowserRouter>
-                <div className="App">
+                <div className='App'>
                     <Header userInfo={headerProps}
                             dropState={this.dropState}
                     />

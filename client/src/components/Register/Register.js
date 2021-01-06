@@ -26,8 +26,8 @@ class Register extends Component {
         return (
             <div className='App-form_wrapper'>
                 <div className='App-form_wrapper-full'>
-                    <form className="App-form" onSubmit={this.handleSubmit}>
-                        <p className="App-form_name">
+                    <form className='App-form' onSubmit={this.handleSubmit}>
+                        <p className='App-form_name'>
                             Log in
                             <div>Hello {this.state.name}!</div>
                         </p>

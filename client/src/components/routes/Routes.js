@@ -1,9 +1,9 @@
 import React from 'react';
-import {HashRouter, Route, Router, Switch} from "react-router-dom";
-import Authorization from "../authorization/Authorization";
-import Home from "../home/Home";
-import Budget from "../budget/Budget";
-import Register from "../Register/Register";
+import {HashRouter, Route, Router, Switch} from 'react-router-dom';
+import Authorization from '../authorization/Authorization';
+import Home from '../home/Home';
+import Budget from '../budget/Budget';
+import Register from '../Register/Register';
 
 function Routes(props) {
     const myOnNameChange = props.onNameChange;
