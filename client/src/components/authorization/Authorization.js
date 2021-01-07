@@ -42,7 +42,7 @@ class Authorization extends Component {
                     <form className='App-form' onSubmit={this.handleSubmit}>
                         <p className='App-form_name'>
                             Log in
-                            <div>{greet(this.state.name)}</div>
+                            <div id='greeting'>{greet(this.state.name)}</div>
                         </p>
                         <input type='text'
                                required='true'
@@ -51,8 +51,9 @@ class Authorization extends Component {
                                placeholder='Your login'
                                data-testid='auth-input'
                                onChange={this.handleChange}
+                               id='authorization-login'
                         />
-                        <button className='App-form_submit-button'>Log in</button>
+                        <button className='App-form_submit-button' id='authorization-button'>Log in</button>
                     </form>
                 </div>
                 <div className='auth-alt'>

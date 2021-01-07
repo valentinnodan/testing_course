@@ -35,15 +35,17 @@ class Register extends Component {
                                required='true'
                                className='App-form_input'
                                name='login'
+                               id='registration-login'
                                placeholder='Your login'
                         />
                         <input type='text'
                                required='true'
                                className='App-form_input'
                                name='name'
+                               id='registration-name'
                                placeholder='Your name'
                         />
-                        <button className='App-form_submit-button'>Register</button>
+                        <button className='App-form_submit-button' id='registration-button'>Register</button>
                     </form>
                 </div>
             </div>
