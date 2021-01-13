@@ -1,4 +1,5 @@
 #Чеклист по заданиям
+
 ##1. Frontend
 Main
 - [x] создать папку `client`
@@ -28,6 +29,7 @@ Advanced
 Bonus
 - [ ] скриншот-тестирование и запись видео
 - [ ] статья в блог
+
 ##3. Backend. Unit testing. Component testing
 Main
 - [ ] сервис Java + Spring + DB
@@ -47,6 +49,7 @@ Advanced
 Bonus
 - [ ] функциональность с Kafka/RabbitMQ streams
 - [ ] компонентные тесты на эту функциональность
+
 ##4. CI/CD
 Main
 - [ ] GitHub action для запуска тестов на UI и Backend по пушу из master в ветку
@@ -56,6 +59,7 @@ Advanced
 
 Bonus
 - [ ] Kubernetes в Azure/Яндекс Облаке для разворачивания среды
+
 ## Reporting
 Bonus
 - [ ]  Allure reporting для написанных тестов
@@ -63,11 +67,13 @@ Bonus
 ## Contract tests
 Bonus
 - [ ]  Pact-тесты к сервису.
+
 ## A11Y
 Bonus
 - [ ]  протестировать сайт на а11y с помощью инструментов от Mozilla и Lighthouse
 - [ ]  пофиксить проблемы
 - [ ]  сделать автоматический тест с axe
+
 ##5. Selenium
 Main
 - [ ] e2e тесты, используя Selenide
@@ -78,6 +84,7 @@ Advanced
 Bonus
 - [ ] настроить генерацию отчетов с Allure report, сделав полный сетап в GitHub: e2e тесты с selenide запускаются с использованием Selenoid на разных окружениях(браузерах) параллельно и собирают отчет с помощью Allure Report.
 - [ ] написать статью про сетап
+
 ##6.Performance
 Main
 - [ ] пройти воркшоп
