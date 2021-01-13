@@ -27,7 +27,6 @@ app.get('/api/authorize', (req, res) => {
     }
 })
 app.post('/api/budget', (req, res) => {
-    console.log(req.query)
     if (req.query.userLogin in people) {
         people[req.query.userLogin].coins.push({
             date: req.query.date,
@@ -41,8 +40,6 @@ app.post('/api/budget', (req, res) => {
 })
 
 app.post('/api/register', (req, res) => {
-    console.log(req.query)
-    console.log(people)
     if (!(req.query.login in people)) {
         people[req.query.login] = {
             name: req.query.name,
@@ -56,7 +53,6 @@ app.post('/api/register', (req, res) => {
 })
 
 app.get('/api/budget', (req, res) => {
-    console.log(req.query)
     if (req.query.userLogin in people) {
         res.json(people[req.query.userLogin].coins)
     }

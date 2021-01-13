@@ -12,12 +12,6 @@ global.fetch = jest.fn(() =>
         json: () => Promise.resolve(user),
     })
 );
-// it("finds exchange", async () => {
-//     const rate = await convert("USD", "CAD");
-//
-//     expect(rate).toEqual(1.42);
-//     expect(fetch).toHaveBeenCalledTimes(1);
-// });
 
 function flushPromises() {
     return new Promise(resolve => setImmediate(resolve));

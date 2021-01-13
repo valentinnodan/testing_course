@@ -75,7 +75,7 @@ class Budget extends Component {
 
         if (this.state.login === '') {
             return <div className='App-text'>
-                <div className='App-text_item'>You need to authorize</div>
+                <div className='App-text_item' id='budget-empty'>You need to authorize</div>
             </div>
         }
 
@@ -84,7 +84,7 @@ class Budget extends Component {
                 <div className='App-form_wrapper budget-form'>
                     <div className='App-form_wrapper-half'>
                         <form className='App-form' onSubmit={this.handleSubmit}>
-                            <p className='App-form_name'>
+                            <p className='App-form_name' id='budget-greeting'>
                                 Insert new coin, {this.state.name}!
                             </p>
                             <input type='date'

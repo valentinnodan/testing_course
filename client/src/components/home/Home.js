@@ -6,7 +6,7 @@ import greet from '../../utils/greeting'
 const promoText = 'Coin is an app for your budget tracking. We call one expense Coin. Track your Coins with us!'
 
 function Home(props) {
-    let greeting = greet(props.userName);
+    let greeting = <div id='home-greeting'>{greet(props.userName)}</div>;
     let promo = <div className='App-text_item'>{promoText}</div>
     let contentComponent = <div className='wrapper'>
         {greeting}
