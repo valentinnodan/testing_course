@@ -21,8 +21,8 @@ Bonus
 
 ## 2. E2E Tests
 Main
-- [x] 5 тестов на Playwright
-- [ ] 5 тестов на Cypress
+- [x] тесты на Playwright
+- [x] тесты на Cypress
 
 Advanced
 - [ ] тесты без логина

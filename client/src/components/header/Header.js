@@ -6,7 +6,7 @@ function Header(props) {
     let authComponent = <Link
         to={'/authorize'}
         className='App-link'
-        id='App-header-link'
+        id='App-header-link-auth'
     >
         Authorize
     </Link>

@@ -70,25 +70,4 @@ describe(`UI Tests with Playwright`, () => {
         expect(await page.innerText('#budget-greeting')).toBe(`Insert new coin, ${testName}!`);
     })
 
-    test('Authorized user can add coins', async () => {
-        const coinDate = '2000-01-01';
-        const coinName = 'Test';
-        const coinValue = '100';
-        await page.goto(PAGE_URL + '/authorize');
-        await page.fill('#authorization-login', testLogin);
-        await page.click('#authorization-button');
-
-        await page.click('#App-header-link')
-        await page.click('#link-to-budget')
-        const currAmountText = await page.innerText('#budget-amount')
-        const currAmount = parseInt(currAmountText.slice(9))
-
-        await page.fill('#budget-coin-date', coinDate);
-        await page.fill('#budget-coin-name', coinName);
-        await page.fill('#budget-coin-value', coinValue);
-        await page.click('#budget-coin-submit');
-        await delay(100);
-        expect(await page.innerText('#budget-amount')).toBe(`Amount = ${currAmount + 1}`)
-    })
-
 });
