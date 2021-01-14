@@ -1,6 +1,6 @@
-#Чеклист по заданиям
+# Чеклист по заданиям
 
-##1. Frontend
+## 1. Frontend
 Main
 - [x] создать папку `client`
 - [x] создать приложение на React
@@ -18,9 +18,10 @@ Bonus
 - [x] написать примеры с каждым для своего приложения
 - [x] короткие заметки об отличиях
 - [x] сделать активными GitHub pages
-##2. E2e Tests
+
+## 2. E2E Tests
 Main
-- [ ] 5 тестов на Playwright
+- [x] 5 тестов на Playwright
 - [ ] 5 тестов на Cypress
 
 Advanced
@@ -30,7 +31,7 @@ Bonus
 - [ ] скриншот-тестирование и запись видео
 - [ ] статья в блог
 
-##3. Backend. Unit testing. Component testing
+## 3. Backend. Unit testing. Component testing
 Main
 - [ ] сервис Java + Spring + DB
 - [ ] как минимум 1 контроллер
@@ -50,7 +51,7 @@ Bonus
 - [ ] функциональность с Kafka/RabbitMQ streams
 - [ ] компонентные тесты на эту функциональность
 
-##4. CI/CD
+## 4. CI/CD
 Main
 - [ ] GitHub action для запуска тестов на UI и Backend по пушу из master в ветку
 
@@ -74,7 +75,7 @@ Bonus
 - [ ]  пофиксить проблемы
 - [ ]  сделать автоматический тест с axe
 
-##5. Selenium
+## 5. Selenium
 Main
 - [ ] e2e тесты, используя Selenide
 
@@ -85,7 +86,7 @@ Bonus
 - [ ] настроить генерацию отчетов с Allure report, сделав полный сетап в GitHub: e2e тесты с selenide запускаются с использованием Selenoid на разных окружениях(браузерах) параллельно и собирают отчет с помощью Allure Report.
 - [ ] написать статью про сетап
 
-##6.Performance
+## 6.Performance
 Main
 - [ ] пройти воркшоп
 

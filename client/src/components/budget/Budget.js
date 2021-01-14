@@ -7,15 +7,15 @@ function createCoinsRepresentation(coins) {
         const nameField = `Name: ${coin.name}`
         const valueField = `Value: ${coin.value}`
         return (<li key={nameField} className='budget-coins_item'>
-            <div className='budget-coins_item-field'>{dateField}</div>
-            <div className='budget-coins_item-field'>{nameField}</div>
-            <div className='budget-coins_item-field'>{valueField}</div>
+            <div className='budget-coins_item-field' id='coin-date'>{dateField}</div>
+            <div className='budget-coins_item-field' id='coin-name'>{nameField}</div>
+            <div className='budget-coins_item-field' id='coin-value'>{valueField}</div>
         </li>)
     }
 
     return (<ul className='budget-coins'>
         <div className='budget-coins_name'>My coins</div>
-        <div className='budget-coins_amount'>Amount = {coins.length}</div>
+        <div className='budget-coins_amount' id='budget-amount'>Amount = {coins.length}</div>
         {coins.map(c => {
             return represent(c);
         })}
@@ -92,20 +92,23 @@ class Budget extends Component {
                                    className='App-form_input'
                                    name='date'
                                    placeholder='Date of coin'
+                                   id='budget-coin-date'
                             />
                             <input type='text'
                                    required='true'
                                    className='App-form_input'
                                    name='name'
                                    placeholder='Name of coin'
+                                   id='budget-coin-name'
                             />
                             <input type='number'
                                    required='true'
                                    className='App-form_input'
                                    name='name'
                                    placeholder='Value of coin'
+                                   id='budget-coin-value'
                             />
-                            <button className='App-form_submit-button'>Submit new coin</button>
+                            <button className='App-form_submit-button' id='budget-coin-submit'>Submit new coin</button>
                         </form>
                     </div>
                 </div>

@@ -6,6 +6,10 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
 let people = {
+    'tester': {
+        name: 'Tester',
+        coins: []
+    },
     1:
         {
             name: 'Valentina Danilova',

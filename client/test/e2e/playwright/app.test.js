@@ -1,6 +1,7 @@
 const playwright = require('playwright');
 
 const PAGE_URL = 'http://localhost:3000';
+const delay = ms => new Promise(res => setTimeout(res, ms));
 
 describe(`UI Tests with Playwright`, () => {
     let browser = null;
@@ -29,51 +30,65 @@ describe(`UI Tests with Playwright`, () => {
         expect(await page.title()).not.toBeNull();
     });
 
-    test('Should register and login', async () => {
-        await page.goto(PAGE_URL + '/register');
-        await page.fill('#registration-login', testLogin);
-        await page.fill('#registration-name', testName);
-        await page.click('#registration-button');
-
-        await page.click('#App-header-button')
-
+    test('Should log in', async () => {
         await page.goto(PAGE_URL + '/authorize');
         await page.fill('#authorization-login', testLogin);
         await page.click('#authorization-button');
+        await delay(100);
 
-        expect(await page.innerText('#greeting')).toBe('Hello, Tester!')
+        expect(await page.innerText('#greeting')).toBe(`Hello, ${testName}!`)
     })
 
     test('Home page personalized for authorized user', async () => {
         await page.goto(PAGE_URL)
         expect(await page.innerText('#home-greeting')).toBe('Hello, guest!')
 
-        await page.goto(PAGE_URL + '/register');
-        await page.fill('#registration-login', testLogin);
-        await page.fill('#registration-name', testName);
-        await page.click('#registration-button');
+        await page.goto(PAGE_URL + '/authorize');
+        await page.fill('#authorization-login', testLogin);
+        await page.click('#authorization-button');
 
         await page.click('#App-header-link')
-        expect(await page.innerText('#home-greeting')).toBe('Hello, Tester!')
+        await delay(100);
+
+        expect(await page.innerText('#home-greeting')).toBe(`Hello, ${testName}!`)
         expect(await page.innerText('#link-to-budget')).toBe('To budget')
+
     })
 
     test('Coins page personalized for authorized user', async () => {
         await page.goto(PAGE_URL + '/budget')
         expect(await page.innerText('#budget-empty')).toBe('You need to authorize')
 
-        await page.goto(PAGE_URL + '/register');
-        await page.fill('#registration-login', testLogin);
-        await page.fill('#registration-name', testName);
-        await page.click('#registration-button');
+        await page.goto(PAGE_URL + '/authorize');
+        await page.fill('#authorization-login', testLogin);
+        await page.click('#authorization-button');
 
         await page.click('#App-header-link')
         await page.click('#link-to-budget')
-        expect(await page.innerText('#budget-greeting')).toBe('Insert new coin, Tester!')
-    })
-});
+        await delay(100);
 
-//уже залогиненный логинится - скриншот тестирование
-//у залогиненного пользователя на домашней страничке есть приветствие
-//у залогиненного пользователя есть своя страничка с коинами
-//можем добавлять коины
+        expect(await page.innerText('#budget-greeting')).toBe(`Insert new coin, ${testName}!`);
+    })
+
+    test('Authorized user can add coins', async () => {
+        const coinDate = '2000-01-01';
+        const coinName = 'Test';
+        const coinValue = '100';
+        await page.goto(PAGE_URL + '/authorize');
+        await page.fill('#authorization-login', testLogin);
+        await page.click('#authorization-button');
+
+        await page.click('#App-header-link')
+        await page.click('#link-to-budget')
+        const currAmountText = await page.innerText('#budget-amount')
+        const currAmount = parseInt(currAmountText.slice(9))
+
+        await page.fill('#budget-coin-date', coinDate);
+        await page.fill('#budget-coin-name', coinName);
+        await page.fill('#budget-coin-value', coinValue);
+        await page.click('#budget-coin-submit');
+        await delay(100);
+        expect(await page.innerText('#budget-amount')).toBe(`Amount = ${currAmount + 1}`)
+    })
+
+});

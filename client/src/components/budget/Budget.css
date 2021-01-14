@@ -12,7 +12,14 @@
 .budget-coins_item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    background-color: #e5f4ff;
+    margin: 3px;
 }
+
+.budget-coins_item:hover {
+    background-color: #A5B4BF;
+}
+
 .budget-form_wrapper {
     display: flex;
     height: 50%;
