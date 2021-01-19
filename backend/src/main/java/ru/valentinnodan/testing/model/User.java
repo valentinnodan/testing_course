@@ -1,5 +1,7 @@
 package ru.valentinnodan.testing.model;
 
+import javax.validation.constraints.NotNull;
+
 public class User {
     public User() {
 

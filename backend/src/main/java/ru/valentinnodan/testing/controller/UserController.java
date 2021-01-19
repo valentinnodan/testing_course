@@ -3,6 +3,7 @@ package ru.valentinnodan.testing.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,9 +14,10 @@ import ru.valentinnodan.testing.model.User;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
     private final UserDao userDao;
+
     private final ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
@@ -24,28 +26,28 @@ public class UserController {
     }
 
     @GetMapping("/api/authorize")
-    public User getUser(@RequestParam("login") String login) {
-        return userDao.getUser(login).get(0);
+    public String getUser(@RequestParam("login") String login) throws JsonProcessingException {
+        return mapper.writeValueAsString(userDao.getUser(login).get(0));
     }
 
     @PostMapping("/api/budget")
-    public List<Coin> addCoin(@RequestParam("userLogin") String login,
+    public String addCoin(@RequestParam("userLogin") String login,
                               @RequestParam("date") String date,
                               @RequestParam("name") String name,
-                              @RequestParam("value") String value) {
+                              @RequestParam("value") String value) throws JsonProcessingException {
         userDao.addCoin(login, new Coin(date, name, value));
-        return userDao.getCoins(login);
+        return mapper.writeValueAsString(userDao.getCoins(login));
     }
 
     @PostMapping("/api/register")
-    public User addUser(@RequestParam("login") String login,
-                          @RequestParam("name") String name) {
+    public String addUser(@RequestParam("login") String login,
+                          @RequestParam("name") String name) throws JsonProcessingException {
         userDao.addUser(new User(login, name));
-        return userDao.getUser(login).get(0);
+        return mapper.writeValueAsString(userDao.getUser(login).get(0));
     }
 
     @GetMapping("/api/budget")
-    public List<Coin> getCoins(@RequestParam("userLogin") String login) {
-        return userDao.getCoins(login);
+    public String getCoins(@RequestParam("userLogin") String login) throws JsonProcessingException {
+        return mapper.writeValueAsString(userDao.getCoins(login));
     }
 }

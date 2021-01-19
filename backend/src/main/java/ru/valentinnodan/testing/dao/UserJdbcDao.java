@@ -20,8 +20,7 @@ public class UserJdbcDao extends JdbcDaoSupport implements UserDao {
                 "NAME VARCHAR(100) not null, " +
                 "VALUE VARCHAR(100) not null, " +
                 "LOGIN VARCHAR (50) not null, " +
-                "foreign key (LOGIN) references USERS (LOGIN));\n" +
-                "INSERT INTO USERS (NAME, LOGIN) VALUES (\'Tester\', \'tester\');";
+                "foreign key (LOGIN) references USERS (LOGIN));\n";
         getJdbcTemplate().update(initSql);
     }
 
