@@ -22,6 +22,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Maven Package
+        run: mvn clean package
+      - name: Maven Verify
+        run: mvn clean verify -DskipTests
+        
+      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v2
@@ -38,13 +49,3 @@ jobs:
           npm run test-mocha
           npm run test-jest
           npm run test-cypress
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          # в значение GITHUB_TOKEN помещается ссылка на ваш секрет в репозитории
-          # в данном случае его название KEY
-          GITHUB_TOKEN: ${{ secrets.KEY }}
-          BRANCH: master
-          FOLDER: public
-          CLEAN: true
