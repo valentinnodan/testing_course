@@ -16,6 +16,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   node_js_back:
+    defaults:
+      run:
+        working-directory: ./express
     runs-on: ubuntu-latest
     steps:
       - name: Start express server
