@@ -28,16 +28,16 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install 🔧
+      - name: Install Client🔧
         run: |
           cd client 
           npm install
 
-      - name: Run Test 🔨
-        run: npm run test
-
-      - name: Build 👷
-        run: npm run build
+      - name: Run Client Test 🔨
+        run: |
+          npm run test-mocha
+          npm run test-jest
+          npm run test-cypress
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
