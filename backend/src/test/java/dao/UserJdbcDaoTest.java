@@ -35,7 +35,7 @@ public class UserJdbcDaoTest{
 
 
     @Test
-    public void getUserTest() { // as defined in tc-initscript.sql
+    public void getUserTest() {
         assertNotNull("User DAO is null.", userDao);
         String testerLogin = "tester";
         String testerName = "Tester";

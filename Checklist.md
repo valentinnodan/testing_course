@@ -36,16 +36,16 @@ Main
 - [x] сервис Java + Spring + DB
 - [x] как минимум 1 контроллер
 - [x] unit tests
-- [ ] component tests
+- [x] component tests
 - [x] TestContainers для теста с DB
 - [x] Mockito
 - [ ] README про ненаписанные тесты
 
 Advanced
 - [x] взаимодействие сервиса и Frontend приложения
-- [ ] тесты на авторизацию
+- [x] тесты на авторизацию
 - [ ] Spring Test Configuration, которые можно переключать при помощи флага при запуске тестов
-- [ ] генерация тестовой документации через Asci Doctor(Spring Rest Docs)
+- [x] генерация тестовой документации через Asci Doctor(Spring Rest Docs)
 
 Bonus
 - [ ] функциональность с Kafka/RabbitMQ streams
