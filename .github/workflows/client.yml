@@ -18,8 +18,8 @@ jobs:
   node_js_back:
     runs-on: ubuntu-latest
     steps:
-       - name: Start express server
-         run: |
+      - name: Start express server
+        run: |
           npm install
           npm start
   client:
@@ -39,7 +39,7 @@ jobs:
 
       - name: Install Client🔧
         run: npm install
-      
+
       - name: Start Client
         run: npm start
 
@@ -48,7 +48,7 @@ jobs:
           npm run test-mocha
           npm run test-jest
           npm run test-cypress
-      
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
