@@ -7,12 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import ru.valentinnodan.testing.dao.UserDao;
 import ru.valentinnodan.testing.model.Coin;
 import ru.valentinnodan.testing.model.User;
 
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -26,11 +25,13 @@ public class UserController {
     }
 
     @GetMapping("/api/authorize")
+    @ResponseBody
     public String getUser(@RequestParam("login") String login) throws JsonProcessingException {
         return mapper.writeValueAsString(userDao.getUser(login).get(0));
     }
 
     @PostMapping("/api/budget")
+    @ResponseBody
     public String addCoin(@RequestParam("userLogin") String login,
                               @RequestParam("date") String date,
                               @RequestParam("name") String name,
@@ -40,6 +41,7 @@ public class UserController {
     }
 
     @PostMapping("/api/register")
+    @ResponseBody
     public String addUser(@RequestParam("login") String login,
                           @RequestParam("name") String name) throws JsonProcessingException {
         userDao.addUser(new User(login, name));
@@ -47,6 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/api/budget")
+    @ResponseBody
     public String getCoins(@RequestParam("userLogin") String login) throws JsonProcessingException {
         return mapper.writeValueAsString(userDao.getCoins(login));
     }

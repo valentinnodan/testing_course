@@ -1,31 +1,49 @@
 package dao;
 
-import org.junit.Before;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.testcontainers.containers.MySQLContainer;
 import ru.valentinnodan.testing.dao.UserDao;
 import ru.valentinnodan.testing.dao.UserJdbcDao;
+import ru.valentinnodan.testing.model.User;
 
-@SpringBootTest
-public class UserJdbcDaoTest {
+import javax.sql.DataSource;
+import java.util.List;
 
-    @Autowired
-    UserDao userDao;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-    @BeforeEach
-    @AfterEach
-    private void clearDatabase() {
-        String createSql = "CREATE TABLE IF NOT EXISTS USERS " +
-                "( NAME VARCHAR(50) not null, " +
-                "LOGIN VARCHAR(50) not null primary key);\n" +
-                "CREATE TABLE IF NOT EXISTS COINS " +
-                "(DATE VARCHAR(50) not null, " +
-                "NAME VARCHAR(100) not null, " +
-                "VALUE VARCHAR(100) not null, " +
-                "LOGIN VARCHAR (50) not null, " +
-                "foreign key (LOGIN) references USERS (LOGIN));\n";
-        String clearSql = "delete from Users where true;";
+@RunWith(SpringJUnit4ClassRunner.class)
+public class UserJdbcDaoTest{
+
+    public DataSource dataSource() {
+        MySQLContainer<?> mysql = new MySQLContainer<>("mysql:5.6.42");
+        mysql.start();
+        System.out.println(mysql.getJdbcUrl());
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setDriverClassName(mysql.getDriverClassName());
+        hikariConfig.setJdbcUrl(mysql.getJdbcUrl());
+        hikariConfig.setUsername(mysql.getUsername());
+        hikariConfig.setPassword(mysql.getPassword());
+
+        return new HikariDataSource(hikariConfig);
+    }
+    private UserDao userDao = new UserJdbcDao(dataSource());
+
+
+    @Test
+    public void getUserTest() { // as defined in tc-initscript.sql
+        assertNotNull("User DAO is null.", userDao);
+        String testerLogin = "tester";
+        String testerName = "Tester";
+        User tester = new User(testerLogin, testerName);
+        userDao.addUser(tester);
+        List<User> result = userDao.getUser("tester");
+
+        assertEquals(1, result.size());
+        assertEquals("Tester", result.get(0).getName());
     }
 }

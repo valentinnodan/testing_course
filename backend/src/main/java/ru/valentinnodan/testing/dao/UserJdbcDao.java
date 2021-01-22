@@ -12,16 +12,18 @@ public class UserJdbcDao extends JdbcDaoSupport implements UserDao {
     public UserJdbcDao(DataSource dataSource) {
         super();
         setDataSource(dataSource);
-        String initSql = "CREATE TABLE IF NOT EXISTS USERS " +
+        String initSqlUsers = "CREATE TABLE IF NOT EXISTS USERS " +
                 "( NAME VARCHAR(50) not null, " +
-                "LOGIN VARCHAR(50) not null primary key);\n" +
+                "LOGIN VARCHAR(50) not null primary key);";
+        String initSqlCoins =
                 "CREATE TABLE IF NOT EXISTS COINS " +
                 "(DATE VARCHAR(50) not null, " +
                 "NAME VARCHAR(100) not null, " +
                 "VALUE VARCHAR(100) not null, " +
                 "LOGIN VARCHAR (50) not null, " +
                 "foreign key (LOGIN) references USERS (LOGIN));\n";
-        getJdbcTemplate().update(initSql);
+        getJdbcTemplate().update(initSqlUsers);
+        getJdbcTemplate().update(initSqlCoins);
     }
 
     @Override

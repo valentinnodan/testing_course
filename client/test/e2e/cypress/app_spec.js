@@ -26,13 +26,4 @@ describe('Coin test', () => {
         cy.get('#home-greeting').should('contain', `Hello, ${testName}!`);
         cy.get('#link-to-budget').should('contain', 'To budget');
     })
-    it ('user can add coin', () => {
-        cy.visit(PAGE_URL);
-        cy.get('#App-header-link-auth').click();
-        cy.get('#authorization-login').type(testLogin);
-        cy.get('#authorization-button').click();
-        cy.get('#App-header-link').click();
-        cy.get('#link-to-budget').click();
-        cy.
-    })
 })

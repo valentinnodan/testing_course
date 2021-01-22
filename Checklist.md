@@ -25,7 +25,7 @@ Main
 - [x] тесты на Cypress
 
 Advanced
-- [ ] тесты без логина (не понимаю, как сделать пока)
+- [x] тесты без логина
 
 Bonus
 - [x] скриншот-тестирование и запись видео
@@ -35,10 +35,10 @@ Bonus
 Main
 - [x] сервис Java + Spring + DB
 - [x] как минимум 1 контроллер
-- [ ] unit tests
+- [x] unit tests
 - [ ] component tests
-- [ ] TestContainers для теста с DB
-- [ ] Mockito
+- [x] TestContainers для теста с DB
+- [x] Mockito
 - [ ] README про ненаписанные тесты
 
 Advanced
