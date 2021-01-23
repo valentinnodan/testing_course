@@ -88,8 +88,10 @@ Bonus
 
 ## 6.Performance
 Main
-- [ ] пройти воркшоп
-
+- [x] пройти воркшоп
+    
+    https://gitlab.com/performance_workshop
+    
 Advanced
 - [ ] настроить CI с Github actions
 
