@@ -53,7 +53,7 @@ Bonus
 
 ## 4. CI/CD
 Main
-- [ ] GitHub action для запуска тестов на UI и Backend по пушу из master в ветку
+- [x] GitHub action для запуска тестов на UI и Backend по пушу из master в ветку
 
 Advanced
 - [ ] GitHub action для деплоя приложения UI+BE на Azure/Vercel/Яндекс Облако
@@ -77,7 +77,7 @@ Bonus
 
 ## 5. Selenium
 Main
-- [ ] e2e тесты, используя Selenide
+- [x] e2e тесты, используя Selenide
 
 Advanced
 - [ ] настроить запуск тестов с Selenoid
