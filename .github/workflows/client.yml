@@ -15,22 +15,11 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  node_js_back:
-    defaults:
-      run:
-        working-directory: ./express_backend
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install express server
-        run: npm install
-
-      - name: Start express server
-        run: npm start
   client:
-    needs: node_js_back
-    defaults:
-      run:
-        working-directory: ./client
+    strategy:
+      matrix:
+        node-version: [13.2.x]
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -42,17 +31,28 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install Client🔧
-        run: npm install
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-      - name: Start Client
-        run: npm start
 
-      - name: Run Client Test 🔨Mocha
-        run: npm run test-mocha
 
-      - name: Run Client Test Jest
-        run: npm run test-jest
+      - name: Run API in background
+        working-directory: express
+          run: |
+            npm install
+            npm start &
+          env:
+            PORT: 5000
 
-      - name: Run Client Test Cypress
-        run: npm run test-cypress
+
+      - name: Run and test client
+        working-directory: client
+        run: |
+          npm install
+          npm start &
+          npm run test-jest
+        env:
+          CI: true
+          API_URI: http://localhost:5000/
