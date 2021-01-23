@@ -18,7 +18,7 @@ jobs:
   client:
     strategy:
       matrix:
-        node-version: [13.2.x]
+        node-version: [14.5.x]
 
     # The type of runner that the job will run on
     runs-on: ubuntu-latest

@@ -40,7 +40,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test-mocha": "mocha ./test/unit/mocha --require esm --require @babel/register --require ./test/dom.js --require ignore-styles --require ./test/helpers.js --recursive",
-    "test-jest": "jest",
+    "test-jest": "jest -- test/unit/jest/app.test.js test/e2e/playwright/app.test.js test/unit/jest/greeting.test.js",
     "test-cypress": "cypress run",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
