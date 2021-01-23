@@ -18,7 +18,7 @@ jobs:
   node_js_back:
     defaults:
       run:
-        working-directory: ./express
+        working-directory: ./express_backend
     runs-on: ubuntu-latest
     steps:
       - name: Install express server
@@ -27,6 +27,7 @@ jobs:
       - name: Start express server
         run: npm start
   client:
+    needs: node_js_back
     defaults:
       run:
         working-directory: ./client
