@@ -38,11 +38,11 @@ jobs:
 
 
       - name: Run API in background
-        working-directory: express
+        working-directory: express_backend
         run: |
-            npm install
-            npm start &
-          env:
+          npm install
+          npm start &
+        env:
             PORT: 5000
 
 
