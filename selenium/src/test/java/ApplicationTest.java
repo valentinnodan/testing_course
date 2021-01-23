@@ -19,9 +19,17 @@ public class ApplicationTest {
         $("#greeting").shouldHave(text("Hello, Tester!"));
     }
     @Test
-    public void linkToHomeWorks() {
+    public void linkToHomePage() {
         $("#App-header-link").click();
         $("#home-greeting").shouldHave(text("Hello, Tester!"));
         $("#link-to-budget").shouldHave(text("To budget"));
+    }
+
+    @Test
+    public void budgetCheckCoins() {
+        $("#App-header-link").click();
+        $("#home-greeting").shouldHave(text("Hello, Tester!"));
+        $("#link-to-budget").click();
+        $("#budget-greeting").shouldHave(text("Insert new coin, Tester!"));
     }
 }

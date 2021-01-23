@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.testcontainers.containers.MySQLContainer;
 import ru.valentinnodan.testing.dao.UserDao;
 import ru.valentinnodan.testing.dao.UserJdbcDao;
+import ru.valentinnodan.testing.model.Coin;
 import ru.valentinnodan.testing.model.User;
 
 import javax.sql.DataSource;
@@ -35,7 +36,7 @@ public class UserJdbcDaoTest{
 
 
     @Test
-    public void getUserTest() {
+    public void addUserTest() {
         assertNotNull("User DAO is null.", userDao);
         String testerLogin = "tester";
         String testerName = "Tester";
@@ -45,5 +46,21 @@ public class UserJdbcDaoTest{
 
         assertEquals(1, result.size());
         assertEquals("Tester", result.get(0).getName());
+    }
+
+    @Test
+    public void getCoinTest() {
+        assertNotNull("User DAO is null.", userDao);
+        String testerLogin = "tester";
+        String testerName = "Tester";
+        User tester = new User(testerLogin, testerName);
+        Coin testerCoin = new Coin("2020-01-01", "TesterCoin", "100");
+
+        userDao.addUser(tester);
+        userDao.addCoin(testerLogin, testerCoin);
+        List<Coin> result = userDao.getCoins("tester");
+
+        assertEquals(1, result.size());
+        assertEquals("TesterCoin", result.get(0).getName());
     }
 }

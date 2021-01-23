@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import ru.valentinnodan.testing.controller.UserController;
 import ru.valentinnodan.testing.dao.UserDao;
+import ru.valentinnodan.testing.model.Coin;
 import ru.valentinnodan.testing.model.User;
 
 import java.awt.*;
@@ -55,7 +56,25 @@ public class UserControllerTest {
         String expectedContent =
                 mapper.writeValueAsString(tester);
         mockMvc.perform(get("/api/authorize?login=" + testerLogin))
-                .andExpect(status().isOk()).andDo(document("auth"));
-//                .andExpect(content().string(expectedContent));
+                .andExpect(status().isOk())
+                .andExpect(content().string(expectedContent))
+                .andDo(document("auth"));
+    }
+
+    @Test
+    public void testGetCoins() throws Exception {
+        String testerLogin = "tester";
+        String testerName = "Tester";
+        User tester = new User(testerLogin, testerName);
+        Coin testerCoin = new Coin("2020-01-01", "TesterCoin", "100");
+
+        when(userDao.getCoins(testerLogin)).thenReturn(Collections.singletonList(testerCoin));
+
+        String expectedContent =
+                mapper.writeValueAsString(Collections.singletonList(testerCoin));
+        mockMvc.perform(get("/api/budget?userLogin=" + testerLogin))
+                .andExpect(status().isOk())
+                .andExpect(content().string(expectedContent))
+                .andDo(document("getCoins"));
     }
 }
